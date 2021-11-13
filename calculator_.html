@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator using js</title>
+    <link rel="stylesheet" href="C:\Users\dell\Desktop\all-project\js-calculator\cal-style.css">
+    <style>
+        @media screen and (max-width:1209px) {
+            body{
+                position: relative;
+                right:470px;
+            }
+            h1{
+                position: relative;
+                left: 500px;
+            }
+        }
+        body{
+            margin: 0;
+            padding:0;
+        }
+        #Container{
+          
+            display: inline-block;
+            position: relative;
+            left: 500px;
+            background-color: rgb(150, 140, 160);
+        
+        }
+        
+        #keybord table{
+            margin: auto;
+        }
+        
+        input{
+            width: 96%;
+            height: 57px;
+            border-radius: 20px;
+            background-color: rgb(218, 214, 209);
+        }
+        button{
+           font-size: 20px;
+           padding: 20px;
+           margin: 1px;
+           height: 60px;
+           width: 70px;
+           border-radius: 17px;
+           font-weight: bold;
+           background-color:rgb(65, 162, 226);
+        }
+        
+        h1{
+            text-align: center;
+            position: relative;
+            right: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color:rgb(131, 60, 179);
+            color: red;
+            font-weight: bold;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div id="Container">
+        <input type="text" id="screen">
+        
+        <table>
+            <tr>
+                <td><button>C</button></td>
+                <td> <button>+/-</button></td>
+                <td><button>%</button></td>
+                <td><button>/</button></td>
+                
+            </tr>
+            
+            <tr>
+                <td> <button>7</button></td>
+                <td> <button>8</button></td>
+                <td> <button>9</button></td>
+                <td> <button>x</button></td>
+                
+            </tr>
+            
+            <tr>
+                <td><button>4</button></td>
+                <td><button>5</button></td>
+                <td><button>6</button></td>
+                <td><button>-</button></td>
+                
+                
+            </tr>
+            
+            <tr>
+                <td><button>3</button></td>
+                <td><button>2</button></td>
+                <td><button>1</button></td>
+                <td><button>+</button></td>
+                
+                
+            </tr>
+            
+            <tr>
+                <td><button>0</button></td>
+                <td><button>.</button></td>
+                <td><button>1</button></td>
+                    <td><button>=</button></td>
+
+                </tr>
+            </table>
+            
+            
+            
+            
+        </div>
+        <script src="C:\Users\dell\Desktop\all-project\js-calculator\cal.js"></script>
+        <script>
+
+            screen = document.getElementById('screen');
+button = document.querySelectorAll('button');
+
+screenValue = '';
+
+for (item of button){
+    item.addEventListener('click', (b) =>{
+        buttontext = b.target.innerText; 
+        console.log(buttontext)
+        if(buttontext == 'x'){
+            buttontext = '*';
+            screenValue += buttontext;
+            screen.value = screenValue;
+        }
+     else if(buttontext=='C'){
+         screenValue = "";
+         screen.value = screenValue; 
+     }
+
+     else if(buttontext == '='){
+         screen.value = eval(screenValue);
+     }
+
+     else{
+         screenValue += buttontext;
+         screen.value = screenValue
+     }
+    })
+}
+
+
+        </script>
+    </body>
+    
+    </html>
+    
